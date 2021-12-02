@@ -1,26 +1,26 @@
 
 <?php
-
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CopyCenter extends Model
-{
-    use HasFactory;
-
-    public $printers;
-    
-    /**
-     * Class constructor.
-     */
-    public function __construct()
-    {
-        $this->printers = [
-            new Printer("Impresora 1"),
-            new Printer("Impresora 2"),
-            new Printer("Impresora 3")
+class CopyCenter extends Model {
+    public static function getCopyCenter() {
+        $data = [];
+        $printer = [
+            "name" => "Impresora 1",
+            "ink" => [
+                'black' => 100,
+                'yellow' => 100,
+                'blue' => 100,
+                'magenta' => 100
+            ],
+            "queue" => []
         ];
+        for ($i=0; $i < 3; $i++) { 
+            array_push($data, $printer);
+        }
+        return $data;
+
     }
 }

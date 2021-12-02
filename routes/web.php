@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [12]);
 });
 
-// Route::get('/', [SessionController::class, 'setSession']);
+Route::get('/uwu', [SessionController::class, 'setSession']);
 Route::get('/session/get',[SessionController::class, 'accessSessionData']);
 Route::get('/user/{id}', [David::class, 'show']);

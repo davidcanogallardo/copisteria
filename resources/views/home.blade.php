@@ -1,5 +1,4 @@
 <?php 
-echo "dvsd";
-
+var_dump($data);
 
 ?>
