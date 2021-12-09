@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class SessionController extends Controller
-{
+class SessionController extends Controller {
     public function setSession(Request $request) {
         $data = [];
         $images = ["A2.jpg","A3.jpg","A4.jpg"];
