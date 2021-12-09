@@ -12,8 +12,8 @@ class SessionController extends Controller {
             $printer = [
                 "name" => "Impresora " . $i+1,
                 "ink" => [
-                    'black' => 56,
-                    'yellow' => 23,
+                    'black' => 100,
+                    'yellow' => 100,
                     'blue' => 100,
                     'magenta' => 100
                 ],
@@ -23,23 +23,26 @@ class SessionController extends Controller {
             array_push($data, $printer);
         }
         $request->session()->put('printers', $data);
-        
-        return view('home', ['data' => $data]);
+        $request->session()->put('pageCount', 0);
+        $session = $request->session()->all();
+        // var_dump($data);
+        return view('home', ['session' => $session]);
     }
     
-    public function accessSessionData(Request $request) {
-        if($request->session()->has('data')) {
-            var_dump("sesion detectada");
-            $data = $request->session()->get('data');
-            return view('home', ['data' => $data]);
+    public function getSession(Request $request) {
+        // var_dump($request->all());
+        if($request->session()->has('printers')) {
+            // var_dump("sesion detectada");
+            $session = $request->session()->all();
+            return view('home', ['session' => $session]);
         } else {
-            var_dump("nueva sesión");
+            // var_dump("nueva sesión");
             return $this->setSession($request);
         }
     }
 
     public function resetSession(Request $request) {
-        var_dump("destroy");
+        // var_dump("destroy");
         Session::flush();
         // return view("welcome");
         return;

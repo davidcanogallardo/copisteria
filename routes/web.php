@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [12]);
-});
+// Route::get('/',[SessionController::class, 'accessSessionData']);
+Route::get('/',[CopyCenter::class, 'uwu']);
 
-Route::get('/uwu', [SessionController::class, 'setSession']);
-Route::get('/session/get',[SessionController::class, 'accessSessionData']);
 Route::get('/session/reset',[SessionController::class, 'resetSession']);
-Route::get('/user/{id}', [David::class, 'show']);
