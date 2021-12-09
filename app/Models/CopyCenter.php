@@ -1,11 +1,7 @@
 
 <?php
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class CopyCenter extends Model {
-    public static function getCopyCenter() {
+class CopyCenter {
+    public function getCopyCenter() {
         $data = [];
         $printer = [
             "name" => "Impresora 1",

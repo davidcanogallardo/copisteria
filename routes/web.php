@@ -22,4 +22,5 @@ Route::get('/', function () {
 
 Route::get('/uwu', [SessionController::class, 'setSession']);
 Route::get('/session/get',[SessionController::class, 'accessSessionData']);
+Route::get('/session/reset',[SessionController::class, 'resetSession']);
 Route::get('/user/{id}', [David::class, 'show']);
