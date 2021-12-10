@@ -29,7 +29,7 @@ class CopyCenter extends Controller {
                 $pages = $request->session()->get('pageCount');
 
                 foreach ($session[$printerIndex]["queue"] as $text) {
-                    $letterCount += strlen($text);
+                    $letterCount += strlen(str_replace(' ', '', $text));
                 }
 
                 // var_dump($session[$printerIndex]["ink"]);
