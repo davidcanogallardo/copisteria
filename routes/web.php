@@ -18,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/',[SessionController::class, 'accessSessionData']);
 Route::get('/',[CopyCenter::class, 'uwu']);
+Route::get('/print',[CopyCenter::class, 'printQueue']);
+Route::get('/queue',[CopyCenter::class, 'addToQueue']);
 
 Route::get('/session/reset',[SessionController::class, 'resetSession']);

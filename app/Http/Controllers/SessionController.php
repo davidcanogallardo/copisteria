@@ -22,29 +22,22 @@ class SessionController extends Controller {
             ];            
             array_push($data, $printer);
         }
+
         $request->session()->put('printers', $data);
         $request->session()->put('pageCount', 0);
-        $session = $request->session()->all();
-        // var_dump($data);
-        return view('home', ['session' => $session]);
+        return $request->session()->all();
     }
     
     public function getSession(Request $request) {
-        // var_dump($request->all());
         if($request->session()->has('printers')) {
-            // var_dump("sesion detectada");
-            $session = $request->session()->all();
-            return view('home', ['session' => $session]);
+            return $request->session()->all();
         } else {
-            // var_dump("nueva sesión");
             return $this->setSession($request);
         }
     }
 
-    public function resetSession(Request $request) {
-        // var_dump("destroy");
+    public function resetSession() {
         Session::flush();
-        // return view("welcome");
         return;
     }
 }
