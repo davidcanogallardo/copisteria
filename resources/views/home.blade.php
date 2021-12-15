@@ -40,7 +40,7 @@
                 <div class="col-sm-4">
                     <div class="row">
                         <a href="/print?impresora={{ $loop->index }}">
-                            <img src="/images/{{$printer["image"]}}" alt="Procesa cola">
+                            <img src="images/{{$printer["image"]}}" alt="Procesa cola">
                         </a>
                     </div>
                     <div class="row">
